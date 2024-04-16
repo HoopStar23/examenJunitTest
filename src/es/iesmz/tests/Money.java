@@ -12,23 +12,26 @@ public class Money {
 
     public float change(TipoMoneda origen, TipoMoneda destino, float money){
         if (comprobarTipo(origen, destino) && money >= 0) {
-            if (origen == TipoMoneda.EUR && destino == TipoMoneda.USD) {
-                money = money*eurConvusd;
-            }else if (origen == TipoMoneda.USD && destino == TipoMoneda.EUR) {
-                money = money*usdConveur;
-            }else if (origen == TipoMoneda.EUR && destino == TipoMoneda.GBP) {
-                money = money*eurConvgbp;
-            }else if (origen == TipoMoneda.GBP && destino == TipoMoneda.EUR) {
-                money = money*gbpConveur;
-            }else if (origen == TipoMoneda.GBP && destino == TipoMoneda.USD) {
-                money = money*gbpConveur;
-                money = money*eurConvusd;
-            }else if (origen == TipoMoneda.USD && destino == TipoMoneda.GBP) {
-                money = money*usdConveur;
-                money = money*eurConvgbp;
-            }
+            money = conversion(origen,destino,money);
         }else{
             return -1;
+        }
+        return money;
+    }
+
+    public float conversion(TipoMoneda origen, TipoMoneda destino, float money){
+        if (origen == TipoMoneda.EUR && destino == TipoMoneda.USD) {
+            money = money*eurConvusd;
+        }else if (origen == TipoMoneda.USD && destino == TipoMoneda.EUR) {
+            money = money*usdConveur;
+        }else if (origen == TipoMoneda.EUR && destino == TipoMoneda.GBP) {
+            money = money*eurConvgbp;
+        }else if (origen == TipoMoneda.GBP && destino == TipoMoneda.EUR) {
+            money = money*gbpConveur;
+        }else if (origen == TipoMoneda.GBP && destino == TipoMoneda.USD) {
+            money = (money*gbpConveur) * eurConvusd;
+        }else if (origen == TipoMoneda.USD && destino == TipoMoneda.GBP) {
+            money = (money*usdConveur) * eurConvgbp;
         }
         return money;
     }
