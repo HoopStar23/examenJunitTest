@@ -8,7 +8,8 @@ public class Money {
     private final float eurConvgbp = 0.857839f;
     private final float gbpConveur = 1.165826f;
 
-
+    public Money() {
+    }
 
     public float change(TipoMoneda origen, TipoMoneda destino, float money){
         if (comprobarTipo(origen, destino) && money >= 0) {
@@ -37,11 +38,8 @@ public class Money {
     }
 
     public boolean comprobarTipo(TipoMoneda ori, TipoMoneda dest){
-        if (ori == TipoMoneda.PTS || dest == TipoMoneda.PTS) {
-            return false;
-        }else {
-            return true;
-        }
+        if (ori == TipoMoneda.PTS || dest == TipoMoneda.PTS) return false;
+        else return true;
     }
 
 }

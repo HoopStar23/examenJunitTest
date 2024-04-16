@@ -42,16 +42,16 @@ public class MoneyTest {
     @Test
     void changeMoneyTest7(){
         Money moneda = new Money();
-        assertEquals(-1f, moneda.change(TipoMoneda.PTS, TipoMoneda.EUR, 100.0f),0.01);
+        assertEquals(-1f, moneda.change(TipoMoneda.PTS, TipoMoneda.EUR, 100.0f));
     }
     @Test
     void changeMoneyTest8(){
         Money moneda = new Money();
-        assertEquals(-1f, moneda.change(TipoMoneda.EUR, TipoMoneda.PTS, 123.3f),0.01);
+        assertEquals(-1f, moneda.change(TipoMoneda.EUR, TipoMoneda.PTS, 123.3f));
     }
     @Test
     void changeMoneyTest9(){
         Money moneda = new Money();
-        assertEquals(-1f, moneda.change(TipoMoneda.USD, TipoMoneda.EUR, -167.34f),0.01);
+        assertEquals(-1f, moneda.change(TipoMoneda.USD, TipoMoneda.EUR, -167.34f));
     }
 }
