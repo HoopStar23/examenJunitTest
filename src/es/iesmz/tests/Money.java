@@ -20,6 +20,12 @@ public class Money {
                 money = money*eurConvgbp;
             }else if (origen == TipoMoneda.GBP && destino == TipoMoneda.EUR) {
                 money = money*gbpConveur;
+            }else if (origen == TipoMoneda.GBP && destino == TipoMoneda.USD) {
+                money = money*gbpConveur;
+                money = money*eurConvusd;
+            }else if (origen == TipoMoneda.USD && destino == TipoMoneda.GBP) {
+                money = money*usdConveur;
+                money = money*eurConvgbp;
             }
         }else{
             return -1;
